@@ -13,7 +13,7 @@ const restaurants = [
     desc: "红油小面、牛腩拌面和冰粉，适合一人食和加班餐。",
     tags: ["满45减8", "准时达", "可少辣"],
     menu: [
-      { id: "beef-noodle", name: "牛腩红汤面", price: 32 },
+      { id: "beef-noodle", name: "招牌牛腩面", price: 32 },
       { id: "sesame-noodle", name: "麻酱拌面", price: 24 },
     ],
   },
