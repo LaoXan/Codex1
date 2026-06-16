@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>鲜达外卖 - 首页</title>
+    <meta
+      name="description"
+      content="鲜达外卖首页，发现附近餐厅、筛选分类并快速加入购物车。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <path d="m21 21-4.35-4.35" />
+        <circle cx="11" cy="11" r="7" />
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </symbol>
+      <symbol id="icon-bag" viewBox="0 0 24 24">
+        <path d="M6.5 8h11l1 12h-13l1-12Z" />
+        <path d="M9 8a3 3 0 0 1 6 0" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="icon-minus" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="m12 3 2.7 5.8 6.3.8-4.6 4.4 1.2 6.2-5.6-3.1-5.6 3.1 1.2-6.2L3 9.6l6.3-.8L12 3Z" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" />
+      </symbol>
+      <symbol id="icon-scooter" viewBox="0 0 24 24">
+        <circle cx="7" cy="18" r="2" />
+        <circle cx="18" cy="18" r="2" />
+        <path d="M5 18h5l3-8h3.5l2.5 8" />
+        <path d="M13 10h-3l-2 4" />
+      </symbol>
+      <symbol id="icon-sliders" viewBox="0 0 24 24">
+        <path d="M4 7h10M18 7h2M4 17h2M10 17h10" />
+        <circle cx="16" cy="7" r="2" />
+        <circle cx="8" cy="17" r="2" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="鲜达首页">
+        <span class="brand-mark">鲜</span>
+        <span>鲜达外卖</span>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a class="active" href="#">首页</a>
+        <a href="#restaurants">附近好店</a>
+        <a href="#deals">今日优惠</a>
+        <a href="#orders">订单</a>
+      </nav>
+      <div class="header-actions">
+        <button class="location-button" type="button">
+          <svg class="icon"><use href="#icon-pin"></use></svg>
+          上海静安
+        </button>
+        <button class="icon-button" type="button" aria-label="账户">
+          <svg class="icon"><use href="#icon-user"></use></svg>
+        </button>
+        <button class="icon-button cart-jump" type="button" aria-label="购物车">
+          <svg class="icon"><use href="#icon-bag"></use></svg>
+          <span class="cart-dot" id="headerCartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="鲜达外卖">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">热食 30 分钟达</p>
+          <h1>附近好味，即刻开饭</h1>
+          <p class="hero-copy">午餐、咖啡、夜宵和家庭套餐都在一屏内完成下单。</p>
+          <form class="search-panel" id="searchForm" role="search">
+            <label class="search-box" for="searchInput">
+              <svg class="icon"><use href="#icon-search"></use></svg>
+              <input
+                id="searchInput"
+                type="search"
+                name="q"
+                placeholder="搜索餐厅、菜品或商圈"
+                autocomplete="off"
+              />
+            </label>
+            <button class="primary-button" type="submit">搜索</button>
+          </form>
+          <div class="quick-addresses" aria-label="常用地址">
+            <button type="button">公司</button>
+            <button type="button">家</button>
+            <button type="button">健身房</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-band" aria-labelledby="categoryTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">分类</p>
+            <h2 id="categoryTitle">今天吃点什么</h2>
+          </div>
+          <button class="ghost-button" type="button">
+            <svg class="icon"><use href="#icon-sliders"></use></svg>
+            筛选
+          </button>
+        </div>
+        <div class="category-grid" id="categoryGrid" aria-label="餐品分类"></div>
+      </section>
+
+      <section class="content-shell" id="restaurants">
+        <div class="main-column">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">附近 2 公里</p>
+              <h2>高分餐厅</h2>
+            </div>
+            <label class="sort-control" for="sortSelect">
+              <span>排序</span>
+              <select id="sortSelect">
+                <option value="recommended">推荐</option>
+                <option value="rating">评分最高</option>
+                <option value="time">送达最快</option>
+                <option value="delivery">配送费最低</option>
+              </select>
+            </label>
+          </div>
+          <div class="restaurant-grid" id="restaurantGrid"></div>
+          <p class="empty-state" id="emptyState" hidden>没有找到匹配的餐厅。</p>
+        </div>
+
+        <aside class="order-panel" id="orders" aria-labelledby="cartTitle">
+          <div class="order-header">
+            <div>
+              <p class="eyebrow">购物车</p>
+              <h2 id="cartTitle">当前订单</h2>
+            </div>
+            <svg class="icon"><use href="#icon-bag"></use></svg>
+          </div>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-empty" id="cartEmpty">还没有添加餐品。</div>
+          <div class="order-summary">
+            <div>
+              <span>餐品</span>
+              <strong id="subtotal">¥0</strong>
+            </div>
+            <div>
+              <span>配送</span>
+              <strong id="deliveryFee">¥0</strong>
+            </div>
+            <div class="total-row">
+              <span>合计</span>
+              <strong id="totalPrice">¥0</strong>
+            </div>
+          </div>
+          <button class="checkout-button" id="checkoutButton" type="button" disabled>
+            去结算
+          </button>
+        </aside>
+      </section>
+
+      <section class="deal-band" id="deals" aria-labelledby="dealsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">优惠</p>
+            <h2 id="dealsTitle">今晚不用纠结</h2>
+          </div>
+        </div>
+        <div class="deal-grid">
+          <article class="deal-card fresh">
+            <span>新客专享</span>
+            <h3>满 45 减 18</h3>
+            <p>覆盖轻食、汉堡、咖啡和夜宵。</p>
+          </article>
+          <article class="deal-card family">
+            <span>家庭套餐</span>
+            <h3>第二份半价</h3>
+            <p>18:00 后自动匹配可用门店。</p>
+          </article>
+          <article class="deal-card late">
+            <span>夜宵档</span>
+            <h3>0 元配送</h3>
+            <p>21:00 后精选商家限时开放。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>鲜达外卖</span>
+      <span>准时宝 · 食安封签 · 在线客服</span>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
